@@ -37,9 +37,8 @@ pipeline {
             mail to: 'jigarmalam13@gmail.com',
                  subject: "SUCCESS: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                  body: "Job succeeded: ${env.BUILD_URL}"
-        }    
-        
-    }    
+        }
+
         failure {
             mail to: 'jigarmalam13@gmail.com',
                  subject: "FAILURE: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
