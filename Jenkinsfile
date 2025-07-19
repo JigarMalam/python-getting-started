@@ -34,12 +34,14 @@ pipeline {
 
     post {
         success {
+            echo "Sending Email"
             mail to: 'jigarmalam13@gmail.com',
                  subject: "SUCCESS: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                  body: "Job succeeded: ${env.BUILD_URL}"
         }
 
         failure {
+            echo "Sending Email"
             mail to: 'jigarmalam13@gmail.com',
                  subject: "FAILURE: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                  body: "Job failed: ${env.BUILD_URL}"
