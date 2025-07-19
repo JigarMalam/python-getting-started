@@ -38,6 +38,14 @@ pipeline {
                  subject: "SUCCESS: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                  body: "Job succeeded: ${env.BUILD_URL}"
         }
+        always {
+        emailext(
+            to: 'jigarmalam13@gmail.com',
+            subject: "Build: ${currentBuild.fullDisplayName}",
+            body: "Status: ${currentBuild.currentResult}\n\nCheck console: ${env.BUILD_URL}console"
+        )
+    }
+        
         failure {
             mail to: 'jigarmalam13@gmail.com',
                  subject: "FAILURE: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
